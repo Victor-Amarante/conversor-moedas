@@ -1,1 +1,5 @@
-console.log('Javascript carregado')
+const amount = document.getElementById("amount")
+
+amount.addEventListener("input", (event) => {
+  console.log(amount.value)
+})
