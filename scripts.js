@@ -3,6 +3,7 @@ const amount = document.getElementById("amount")
 const currency = document.getElementById("currency")
 const footer = document.querySelector("main footer")
 const description = document.getElementById("description")
+const result = document.getElementById("result")
 
 const USD = 4.87
 const EUR = 5.32
@@ -32,6 +33,14 @@ form.addEventListener("submit", (event) => {
 function convertCurrency(amount, price, symbol) {
   try {
     description.textContent = `${symbol} 1 = ${convertCurrencyBRL(price)}`
+
+    let total = amount * price
+    
+    if (isNaN(total)) {
+      return alert("Insira um valor válido")
+    }
+    
+    result.textContent = `${convertCurrencyBRL(total)}`
     footer.classList.add("show-result")
   } catch (error) {
     footer.classList.remove("show-result")
